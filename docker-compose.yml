@@ -1,24 +1,12 @@
 version: "3.8"
-
 services:
-
-      php:
-        build: php
-        container_name: php_projet_docker
-        ports:
-            - "8741:80"
-        volumes:
-            - ./php/vhosts:/etc/apache2/sites-enabled
-            - ./:/var/www
-        networks:
-            - internal
 
       db:
         image: mysql
         container_name: db_projet_docker
-        # restart: always
         volumes:
-            - database:/var/lib/mysql
+            - db-data:/var/lib/mysql
+        restart: always
         environment:
             MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
         networks:
@@ -27,6 +15,7 @@ services:
       phpmyadmin:
         image: phpmyadmin
         container_name: phpmyadmin_projet_docker
+        restart: always
         depends_on:
             - db
         ports:
@@ -39,9 +28,22 @@ services:
       maildev:
         image: maildev/maildev
         container_name: maildev_projet_docker
+        restart: always
         command: bin/maildev --web 80 --smtp 25 --hide-extensions STARTTLS
         ports:
             - "8081:80"
+        networks:
+            - internal
+
+      www:
+        build: php
+        container_name: www_projet_docker
+        ports:
+            - "8741:80"
+        volumes:
+            - ./php/vhosts:/etc/apache2/sites-enabled
+            - ./:/var/www
+        restart: always
         networks:
             - internal
 
@@ -50,4 +52,4 @@ services:
 networks:
       internal:
 volumes:
-      database:
+      db-data:
