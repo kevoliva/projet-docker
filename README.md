@@ -34,11 +34,11 @@ docker exec -it www_projet_docker bash
 ```
 
 ```
-bin/console d:d:c
+php bin/console d:d:c
 ```
 
 ```
-bin/console d:m:m
+php bin/console d:m:m
 ```
 
 # Vérification du bon fonctionnement
