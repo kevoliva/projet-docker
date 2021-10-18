@@ -1,15 +1,15 @@
 # projet-docker
 
 # Membres du projet
-MARQUE Quentin
-OLIVA Kévin
+MARQUE Quentin  
+OLIVA Kévin  
 
 # Présentation
-Notre projet est constitué de 4 conteneurs décrits dans le fichier docker-compose.yml
-- le conteneur db, qui correspond à la base de données mysql du projet, nommé db_projet_docker
-- le conteneur phpmyadmin, nommé phpmyadmin_projet_docker
-- le conteneur maildev, nommé maildev_projet_docker permettant de gérer l'envoi et la réception de mails
-- le conteneur Apache et Php nommé www_projet_docker
+Notre projet est constitué de 4 conteneurs décrits dans le fichier docker-compose.yml  
+- le conteneur db, qui correspond à la base de données mysql du projet, nommé db_projet_docker  
+- le conteneur phpmyadmin, nommé phpmyadmin_projet_docker  
+- le conteneur maildev, nommé maildev_projet_docker permettant de gérer l'envoi et la réception de mails  
+- le conteneur Apache et Php nommé www_projet_docker  
 
 # Installation
 
@@ -46,7 +46,7 @@ Vous pouvez tester le bon fonctionnement du projet :
 Cliquer sur le bouton "Créer un nouveau mail"  
 Saisir les champs présents dans le formulaire  
 Vérifier l'envoi de ces données en base en consultant l'historique des mails envoyés depuis l'interface, ou en consultant dans phpmyadmin (http://localhost:8080)  
-Vérifier la réception des mails dans Maildev (http://localhost:8081).  
+Vérifier la réception des mails dans Maildev (http://localhost:8081)  
 
 Les conteneurs communiquent bien entre-eux !  
 
