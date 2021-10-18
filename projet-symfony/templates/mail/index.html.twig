@@ -3,32 +3,34 @@
 {% block title %}Historique mail{% endblock %}
 
 {% block body %}
-    <h1>Historique des mails envoyés</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Destinataire</th>
-                <th>Sujet</th>
-                <th>Corps</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for mail in mails %}
-            <tr>
-                <td>{{ mail.id }}</td>
-                <td>{{ mail.destinataire }}</td>
-                <td>{{ mail.sujet }}</td>
-                <td>{{ mail.corps }}</td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="5">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+  <h1>Historique des mails envoyés</h1>
 
-    <a href="{{ path('mail_new') }}">Créer un nouveau mail</a>
+<div class="mails">
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Destinataire</th>
+        <th>Sujet</th>
+        <th>Corps</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for mail in mails %}
+      <tr class="ligne">
+        <td>{{ mail.destinataire }}</td>
+        <td>{{ mail.sujet }}</td>
+        <td>{{ mail.corps }}</td>
+      </tr>
+      {% else %}
+      <tr>
+        <td colspan="5">Aucun mail envoyé</td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+  <a href="{{ path('mail_new') }}" class="new-mail">Créer un nouveau mail</a>
 {% endblock %}

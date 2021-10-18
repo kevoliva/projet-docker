@@ -1,4 +1,25 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-    <button class="btn">{{ button_label|default('Envoyer !') }}</button>
-{{ form_end(form) }}
+
+      <div class="form-group">
+        <label class="form-control-label">
+          Destinataire
+        </label>
+        {{ form_widget(form.destinataire, {'attr': {'class': 'form-control'}}) }}
+      </div>
+
+      <div class="form-group">
+        <label class="form-control-label">
+          Sujet
+        </label>
+        {{ form_widget(form.sujet, {'attr': {'class': 'form-control'}}) }}
+      </div>
+
+      <div class="form-group">
+        <label class="form-control-label">
+          Message
+        </label>
+        {{ form_widget(form.corps, {'attr': {'class': 'form-control', 'rows': '5'}}) }}
+      </div>
+
+          <button class="btn-envoyer">{{ button_label|default('Envoyer !') }}</button>
+      {{ form_end(form) }}
