@@ -41,31 +41,15 @@ bin/console d:d:c
 bin/console d:m:m
 ```
 
-# Notre mise en place du projet
-Vérification du bon fonctionnement des 4 conteneurs
-Création d'un projet Symfony
-   $ docker exec www_projet_docker composer create-project symfony/website-skeleton project
-Création de la base de données depuis le shell du conteneur www
-   $docker exec -it www_projet_docker bash
-   # cd projet-symfony
-   # php bin/console doctrine:database:create
-Ajout de l'entité "Mail" et des attributs "Sujet", "Corps" et "Destinataire" dans la base de données
-   # php bin/console make:entity
-   # php bin/console make:migration
-   # php bin/console doctrine:migrations:migrate
-Création du contrôleur MailController dans le projet Symfony
-   # php bin/console make:controller
-Mise en place d'un formulaire type d'envoi de mail
-
 # Vérification du bon fonctionnement
-Vous pouvez tester le bon fonctionnement du projet :
-Cliquer sur le bouton "Créer un nouveau mail"
-Saisir les champs présents dans le formulaire
-Vérifier l'envoi de ces données en base en consultant l'historique des mails envoyés depuis l'interface, ou en consultant dans phpmyadmin (http://localhost:8080)
-Vérifier la réception des mails dans Maildev (http://localhost:8081)
+Vous pouvez tester le bon fonctionnement du projet :  
+Cliquer sur le bouton "Créer un nouveau mail"  
+Saisir les champs présents dans le formulaire  
+Vérifier l'envoi de ces données en base en consultant l'historique des mails envoyés depuis l'interface, ou en consultant dans phpmyadmin (http://localhost:8080)  
+Vérifier la réception des mails dans Maildev (http://localhost:8081).  
 
-Les conteneurs communiquent bien entre-eux !
+Les conteneurs communiquent bien entre-eux !  
 
 # Problèmes rencontrés
-Problème au niveau de la configuration du virtual host : réglé
+Problème au niveau de la configuration du virtual host : réglé  
 Problème de réécriture de route (manque de l'extension apache de Symfony) : réglé
